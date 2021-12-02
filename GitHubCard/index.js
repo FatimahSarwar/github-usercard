@@ -1,9 +1,12 @@
+import axios from 'axios';
+
+
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-
+axios.get("https://api.github.com/usersFatimah Sarwar");
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -49,7 +52,47 @@ const followersArray = [];
       </div>
     </div>
 */
+function cardMaker(obj){
+  const card = document.createElement("div");
+  const userimg = document.createElement("img");
+  const cardinfo = document.createElement("div");
+  const h3name = document.createElement("h3");
+  const pname = document.createElement("p");
+  const userloc = document.createElement("p");
+  const profile = document.createElement("p");
+  const address = document.createElement("a");
+  const followers = document.createElement("p");
+  const following = document.createElement("p");
+  const bio = document.createElement("p");
 
+  card.appendChild(userimg);
+  card.appendChild(cardinfo);
+  cardinfo.appendChild(h3name);
+  cardinfo.appendChild(pname);
+  cardinfo.appendChild(userloc);
+  cardinfo.appendChild(profile);
+  cardinfo.appendChild(followers);
+  cardinfo.appendChild(following);
+  cardinfo.appendChild(bio);
+  profile.appendChild(address);
+
+  card.classList("card");
+  cardinfo.classList("card-info");
+  h3name.classList("name");
+  pname.classList("username");
+  address.href = data.url;
+  userimg.src = data.avatar_url;
+
+  h3name.textContent = `user's name: ${data.name}`;
+  pname.textContent = `username: ${username}`;
+  userloc.textContent = `Location: ${data.location}`;
+  address.textContent = `Profile: ${address}`;
+  followers.textContent = `Followers: ${data.followers}`;
+  following.textContent = `Following: ${data.following}`;
+  bio.textContent = `Bio: ${data.bio}`;
+
+  return card;
+}
 /*
   List of LS Instructors Github username's:
     tetondan
